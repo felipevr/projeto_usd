@@ -15,6 +15,9 @@ $app->get('/hello/{name}', function($name) use($app) {
     return 'Hello '.$app->escape($name); 
 }); 
 
+// MAIS ALGUMAS ALTERAÇÕES
+//BLA BLA
+
 $app->run();
 
 //
