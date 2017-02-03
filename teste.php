@@ -5,6 +5,10 @@ TESTE DE ARQUIVO DE README
 
 ###############
 
+//
+// ALTERANDO ALGO MTO LOKO P/ EXPERIMENT
+//
+
 <?php
 require_once __DIR__.'/../vendor/autoload.php'; 
 
