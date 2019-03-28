@@ -1,6 +1,6 @@
-# PROJETO ALURAPIC
+# PROJETO DOMINANDO JAVASCRIPT
 
-Acesse https://cursos.alura.com.br/
+Acesse https://coddev-cursos.coursify.me/student/courses/dominando-o-javascript/
 
 
 ##################
