@@ -1,5 +1,9 @@
-var readline = require('readline-sync')
+const readline = require('readline-sync');
 
-var name = readline.question("qual seu nome? ")
+const url = readline.question("Entre com a URL desejada:");
 
-console.log("Ola " + name)
+console.log(url);
+
+console.log("Estamos processando...");
+
+
