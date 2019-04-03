@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "get-content": "^1.0.2",
     "readline-sync": "^1.4.9"
   }
 }
