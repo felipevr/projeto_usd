@@ -1,11 +1,25 @@
 /*
 https://coddev-cursos.coursify.me/student/courses/dominando-o-javascript/
-DESAFIO 03
+DESAFIO 5 a 8
 */
 const readline = require('readline-sync');
 
-let nome = readline.question("Qual seu nome? ");
-let idade = readline.question("Qual sua idade? ");
-let telefone = readline.question("Qual seu telefone? ");
+let numero1 = readline.question("Informe um valor: ");
+let numero2 = readline.question("Informe outro valor: ");
 
-console.log(nome + " tem " + idade + " anos e seu telefone é "+telefone);
+let soma = Number(numero1) + Number(numero2);
+
+console.log("A soma dos 2 valores  é "+soma);
+
+let sub = Number(numero1) - Number(numero2);
+
+console.log("A subtracao dos 2 valores  é "+sub);
+
+
+let mult = Number(numero1) * Number(numero2);
+
+console.log("A multiplicaçao dos 2 valores  é "+mult);
+
+let div = Number(numero1) / Number(numero2);
+
+console.log("A divisao dos 2 valores  é "+div);
