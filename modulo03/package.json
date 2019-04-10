@@ -1,0 +1,16 @@
+{
+  "name": "modulo03",
+  "version": "1.3.0",
+  "description": "bla bla",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "get-content": "^1.0.2",
+    "readline-sync": "^1.4.9"
+  }
+}

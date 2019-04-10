@@ -25,10 +25,22 @@ while (true) {
     let directionY = '';
     
     if (thorX < lightX) {
-        
+        directionX = 'E';
+        thorX++;
+    } else if (thorX > lightX) {
+        directionX = 'W';
+        thorX--;
+    }
+    
+    if (thorY < lightY) {
+        directionY = 'S';
+        thorY++;
+    } else if (thorY > lightY) {
+        directionY = 'N';
+        thorY--;
     }
 
 
     // A single line providing the move to be made: N NE E SE S SW W or NW
-    console.log('SE');
+    console.log(directionY + directionX);
 }
