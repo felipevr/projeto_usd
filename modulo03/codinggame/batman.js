@@ -58,7 +58,7 @@ function getBatmanNextMove(bombDirection) {
         Xmin = batmanX;
     } else if(bombDirection.includes("L")) {
         Xrate = -1;
-        distanceX = batmanX;
+        distanceX = batmanX- Xmin;
         Xmax = batmanX;
     }
 
@@ -68,7 +68,7 @@ function getBatmanNextMove(bombDirection) {
         Ymin = batmanY;
     } else if(bombDirection.includes("U")) {
         Yrate = -1;
-        distanceY = batmanY;
+        distanceY = batmanY - Ymin;
         Ymax = batmanY;
     }
 
