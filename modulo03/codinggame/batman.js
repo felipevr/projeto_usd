@@ -11,17 +11,74 @@ var inputs = readline().split(' ');
 const X0 = parseInt(inputs[0]);
 const Y0 = parseInt(inputs[1]);
 
+var Xmax = W - 1;
+var Ymax = H - 1;
+var Xmin = 0;
+var Ymin = 0;
+
+var batmanX = X0;
+var batmanY = Y0;
+
+var previousX = X0;
+var previousY = Y0;
+
+var distanceX = Xmax;
+var distanceY = Ymax;
+
+var move = '0 0';
+
+var Xrate, Yrate = 0;
+console.error(W, H);
+
 // game loop
 while (true) {
-    const bombDir = readline(); // the direction of the bombs from batman's current location (U, UR, R, DR, D, DL, L or UL)
+    const bombDirection = readline(); // the direction of the bombs from batman's current location (U, UR, R, DR, D, DL, L or UL)
 
     // Write an action using console.log()
     // To debug: console.error('Debug messages...');
-    console.error(bombDir);
-    
-    console.error(bombDir.length);
+    console.error(bombDirection);    
+    //console.error(bombDirection.length);
 
+    //console.log(Xmax + " " + Ymax);
+
+    move = getBatmanNextMove(bombDirection);
 
     // the location of the next window Batman should jump to.
-    console.log('0 0');
+    console.log(move);
+}
+
+function getBatmanNextMove(bombDirection) {
+
+    Xrate = Yrate = 0;
+    distanceX = distanceY = 0;
+
+    if(bombDirection.includes("R")) {
+        Xrate = 1;
+        distanceX = Xmax - batmanX;
+        Xmin = batmanX;
+    } else if(bombDirection.includes("L")) {
+        Xrate = -1;
+        distanceX = batmanX;
+        Xmax = batmanX;
+    }
+
+    if(bombDirection.includes("D")) {
+        Yrate = 1;
+        distanceY = Ymax - batmanY;
+        Ymin = batmanY;
+    } else if(bombDirection.includes("U")) {
+        Yrate = -1;
+        distanceY = batmanY;
+        Ymax = batmanY;
+    }
+
+    console.error(Xrate, Yrate);
+    console.error(distanceX, distanceY);
+
+    batmanX = batmanX + Math.ceil(distanceX/2)*Xrate;
+    batmanY = batmanY + Math.ceil(distanceY/2)*Yrate;
+
+    let move = batmanX + " " + batmanY;
+
+    return move;
 }
