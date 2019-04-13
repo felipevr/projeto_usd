@@ -19,9 +19,6 @@ var Ymin = 0;
 var batmanX = X0;
 var batmanY = Y0;
 
-var previousX = X0;
-var previousY = Y0;
-
 var distanceX = Xmax;
 var distanceY = Ymax;
 

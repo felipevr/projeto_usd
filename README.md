@@ -4,17 +4,23 @@ Acesse https://coddev-cursos.coursify.me/student/courses/dominando-o-javascript/
 
 
 ##################
-TESTE DE ARQUIVO DE README
+MÓDULO 01 - COMPLETO
 
 ###############
 
 ##################
-TESTE DE ARQUIVO DE README
+MÓDULO 02 - COMPLETO
+
+DESAFIOS COMPLETOS!
 
 ###############
 
 ##################
-TESTE DE ARQUIVO DE README
+MÓDULO 03 - EM ANDAMENTO
+
+CODINGGAME:
+- THE POWER OF THOR
+- Shadows of the Knight - Episode 1
 
 ###############
 
