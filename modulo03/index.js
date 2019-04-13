@@ -19,6 +19,8 @@ if(url.match(regex)) {
   return;
 }
 
+return;
+
 let type = linkType(url);
 
 if (!type) {
