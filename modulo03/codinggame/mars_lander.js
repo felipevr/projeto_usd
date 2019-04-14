@@ -48,7 +48,15 @@ function fireItUp(X, Y, hSpeed, vSpeed, fuel, angle, power) {
         return '0 0';
     }
 
-    let ajustPower = '3';
+    let distanceY = Y - ground;
 
-    return rotate + ' ' + ajustPower;
+    if(vSpeed < -40 && power < 4) {
+        power++;
+    }
+
+    if(vSpeed > -10 && power > 0) {
+        power--;
+    }
+
+    return rotate + ' ' + power;
 }
