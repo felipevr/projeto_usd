@@ -24,6 +24,8 @@ CODINGGAME:
 - THE POWER OF THOR
 - Shadows of the Knight - Episode 1
 - Mars Lander - Episode 1
+- The Descent
+- ASCII Art
 
 -------------------
 
