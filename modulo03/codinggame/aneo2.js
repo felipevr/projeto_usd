@@ -35,13 +35,11 @@ function checkSpeed(speed) {
         console.error(distance, duration);
         console.error('T:'+time);
         
-        var mod = time % duration;
-        var div = (time / duration);
-        console.error('M:'+mod);
+        var div = (time / duration) % 2;
         console.error('D:'+div);
     
         //if(time > duration) {
-        if(time > duration && mod > 1) {
+        if(div > 1) { //
             speed = reduceSpeed(speed);
             distance -= distances[i];
             i--;
@@ -59,7 +57,10 @@ function reduceSpeed(speed) {
 }
 
 function printSpeed(speed) {
-    return Math.ceil(speed * 3600/1000)
+    if(Math.floor(speed * 3600/1000) != (speed * 3600/1000)) {
+        return Math.floor(speed * 3600/1000)+1;
+    }
+    return Math.floor(speed * 3600/1000);
 }
 
 speed = printSpeed(speed);
