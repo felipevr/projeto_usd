@@ -17,13 +17,16 @@ var checkAgain = false;
 do {
     checkAgain = false;
     speed = checkSpeed(speed);
-} while(checkAgain);
+    if(!checkAgain) {
+        console.error("G:"+proveGreenLight(speed, distances, durations, lightCount));
+    }
+} while(checkAgain && speed > 1);
 
 console.log(speed);
 
 function convertSpeed(speed) {
     //convert to m/s
-    return Math.round(speed * 1000/3600, 10);
+    return speed * 1000/3600;
 }
 
 function checkSpeed(speed) {
@@ -31,7 +34,7 @@ function checkSpeed(speed) {
     let i = 0;
     var distance = 0
     while(speed > 1 && i < lightCount) {
-        distance += distances[i];
+        var distance = distances[i];
         var duration = durations[i];
             
         var time = (distance)/convertSpeed(speed);
@@ -60,10 +63,7 @@ function reduceSpeed(speed) {
     return speed - 1;
 }
 
-function proveGreenLight(predictedSpeed) {
-    distanceArr = [300, 1500, 3000]
-    durationArr = [30, 20, 10]
-    light_count = 3
+function proveGreenLight(predictedSpeed, distanceArr, durationArr, light_count) {
 
     for (let i = 0; i < light_count; i++) {
         //# how much time do I have to spend to get to the light
@@ -71,11 +71,9 @@ function proveGreenLight(predictedSpeed) {
 
         //# calculation if it is a green or red phase
         period = secondsToLight/durationArr[i]
-        if(int(period) % 2 != 0)
-            return "red";
+        if(Math.floor(period) % 2 !== 0)
+            return  false;
     }
 
-    return "green"
+    return true;
 }
-
-console.error(proveGreenLight(78))
