@@ -20,16 +20,24 @@ DESAFIOS COMPLETOS!
 
 ### MÓDULO 03 - EM ANDAMENTO
 
+DESAFIOS COMPLETOS!
+
 CODINGGAME:
 - THE POWER OF THOR
 - Shadows of the Knight - Episode 1
 - Mars Lander - Episode 1
 - The Descent
 - ASCII Art
+- Aneo
+- There is no spoon
 
 -------------------
 
-### MÓDULO 04 - STANDING BY
+### MÓDULO 04 - EM ANDAMENTO
+
+-------------------
+
+### MÓDULO 05 - STANDING BY
 
 -------------------
 
