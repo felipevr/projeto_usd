@@ -22,16 +22,6 @@ DESAFIOS COMPLETOS!
 
 DESAFIOS COMPLETOS!
 
-CODINGGAME:
-- THE POWER OF THOR
-- Shadows of the Knight - Episode 1
-- Mars Lander - Episode 1
-- The Descent
-- ASCII Art
-- Aneo
-- Harmless rooks
-- There is no spoon
-
 -------------------
 
 ### MÓDULO 04 - EM ANDAMENTO
@@ -41,5 +31,19 @@ CODINGGAME:
 ### MÓDULO 05 - STANDING BY
 
 -------------------
+
+
+## CODINGGAME
+
+Desafios resolvidos em javascript:
+
+- THE POWER OF THOR
+- Shadows of the Knight - Episode 1
+- Mars Lander - Episode 1
+- The Descent
+- ASCII Art
+- Aneo
+- Harmless rooks
+- There is no spoon
 
 
