@@ -14,12 +14,12 @@ for (let i = 0; i < height; i++) {
     }
     //console.error(line);
 }
-console.error(matrix);
+//console.error(matrix);
 
 for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
         node = checkNodes(i, j);
-        if (node != '') {
+        if (node !== '') {
             console.log(node);
         }
     }
@@ -32,15 +32,24 @@ function checkNodes(x, y) {
         return '';
     }
         
-    var x1, y1, x2, y2, x3, y3;
+    var x2, y2, x3, y3;
+    
+    x2 = y2 = x3 = y3 = -1;
+    
+    if(y < width -1) {
+        if(matrix[x][y+1] == '0') {
+            x2 = x;
+            y2 = y+1;
+        }
+    }
+    
+    if(x < height -1) {
+        if(matrix[x+1][y] == '0') {
+            x3 = x+1;
+            y3 = y;
+        }
+    }
+    
+    return ''+y+' '+x+' '+y2+' '+x2+' '+y3+' '+x3
     
 }
-
-// Write an action using console.log()
-// To debug: console.error('Debug messages...');
-
-
-// Three coordinates: a node, its right neighbor, its bottom neighbor
-console.log('0 0 1 0 0 1');
-console.log('1 0 -1 -1 -1 -1');
-console.log('0 1 -1 -1 -1 -1');
