@@ -31,22 +31,24 @@ function checkNodes(x, y) {
     if (matrix[x][y] != '0') {
         return '';
     }
-        
+    
     var x2, y2, x3, y3;
     
     x2 = y2 = x3 = y3 = -1;
     
-    if(y < width -1) {
-        if(matrix[x][y+1] == '0') {
+    for (let j = y+1; j < width; j++) {
+        if(matrix[x][j] == '0') {
             x2 = x;
-            y2 = y+1;
+            y2 = j;
+            break;
         }
     }
     
-    if(x < height -1) {
-        if(matrix[x+1][y] == '0') {
-            x3 = x+1;
+    for (let i = x+1; i < height; i++) {
+        if(matrix[i][y] == '0') {
+            x3 = i;
             y3 = y;
+            break;
         }
     }
     
