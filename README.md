@@ -18,7 +18,7 @@ DESAFIOS COMPLETOS!
 
 -------------------
 
-### MÓDULO 03 - EM ANDAMENTO
+### MÓDULO 03 - COMPLETO
 
 DESAFIOS COMPLETOS!
 
@@ -29,6 +29,7 @@ CODINGGAME:
 - The Descent
 - ASCII Art
 - Aneo
+- Harmless rooks
 - There is no spoon
 
 -------------------
