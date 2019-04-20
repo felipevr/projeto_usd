@@ -1,6 +1,6 @@
-const readerFactory = require("./reader_factory");
+//const readerFactory = require("./reader_factory");
 
-const reader = readerFactory();
+//const reader = readerFactory();
 
 
 function teste() {
@@ -18,33 +18,31 @@ const nomeDaFuncao2 = function() {
 
 };
 
-const square = function(x) {
+const square = x => x * x;
 
-    x *= x;
 
-    return x;
+const power = (base, exponent) => {
 
-};
+    console.log(base, exponent);
 
-const power = function (base, exponent) {
-
-    let result = 1;
-
-    for (let count = 0; count < exponent; count++) {
-
-        result *= base;
-
+    if(exponent > 0) {
+        return base * power(base, exponent - 1);
     }
 
-    return result;
-
+    return 1;
 
 };
 
 //teste();
 
-//nomeDaFuncao2();
+//console.log(power(2, 10));
 
-console.log(power(2, 10));
+//console.log(power(4, 5));
 
-console.log(result);
+console.log(power(16, 2.5));
+
+console.log(power(8, 3));
+
+console.log(square(2));
+
+console.log(square(16));
