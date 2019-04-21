@@ -24,11 +24,17 @@ DESAFIOS COMPLETOS!
 
 -------------------
 
-### MÓDULO 04 - EM ANDAMENTO
+### MÓDULO 04 - COMPLETO
+
+DESAFIOS COMPLETOS!
 
 -------------------
 
-### MÓDULO 05 - STANDING BY
+### MÓDULO 05 - EM ANDAMENTO
+
+-------------------
+
+### MÓDULO 06 - STANDING BY
 
 -------------------
 

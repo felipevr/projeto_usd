@@ -1,12 +1,12 @@
 {
-  "name": "modulo03",
+  "name": "projeto prático",
   "version": "1.3.0",
   "description": "bla bla",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Felipe V. Rigo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
