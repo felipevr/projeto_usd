@@ -2,6 +2,7 @@
 https://coddev-cursos.coursify.me/student/courses/dominando-o-javascript/
 modulo 03 - DESAFIO 06
 
+Refatorado para usar funções - vide desafio 02 - modulo 04
 */
 const readline = require('readline-sync');
 
@@ -23,35 +24,49 @@ let values = value.split(‘ ‘);
 c. Cada posição do array resultante pode ser capturado assim: array[index];
 
 */
-let expression = readline.question("Informe uma expressão aritmética simples : ");
 
-let values = expression.split(' ');
+function main() {
+    let expression = readline.question("Informe uma expressão aritmética simples : ");
+
+    let values = expression.split(' ');
 
 
-const regularExpression = /(\d+\s*(\*|\/|\+|\-)\s*\d*)/
-const regex = new RegExp(regularExpression);
+    const regularExpression = /(\d+\s*(\*|\/|\+|\-)\s*\d*)/
+    const regex = new RegExp(regularExpression);
 
-if(values.length !== 3 || !expression.match(regex)) {
-    console.log('Expressão inválida!');
-    return;
+    if (values.length !== 3 || !expression.match(regex)) {
+        console.log('Expressão inválida!');
+        return;
+    }
+
+    op = values[1];
+    esq = parseInt(values[0]);
+    dir = parseInt(values[2]);
+
+    var resultado = calculaOperacao(esq, dir, op);
+
+    if(resultado) {
+        console.log('O resultado é ' + resultado);
+    }
 }
 
-op = values[1];
-esq = parseInt(values[0]);
-dir = parseInt(values[2]);
+function calculaOperacao(esq, dir, op) {
+    var resultado = null;
 
-var resultado = 0;
-if(op == '+') {
-    resultado = esq + dir;
-} else if(op == '*') {
-    resultado = esq * dir;
-} else if(op == '/') {
-    resultado = esq / dir;
-} else if(op == '-') {
-    resultado = esq - dir;
-} else {
-    console.log('Operador inválido!');
-    return;
+    if (op == '+') {
+        resultado = esq + dir;
+    } else if (op == '*') {
+        resultado = esq * dir;
+    } else if (op == '/') {
+        resultado = esq / dir;
+    } else if (op == '-') {
+        resultado = esq - dir;
+    } else {
+        console.log('Operador inválido!');
+    }
+
+    return resultado;
+
 }
 
-console.log('O resultado é ' + resultado);
+main();
