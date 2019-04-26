@@ -1,11 +1,19 @@
 
 const axios = require('axios');
 
-const downloadPage = function (url, callback) {
+const downloadPage = function (url, ...callbacks) {
 
     axios.get(url, { responseType: 'text' })
-        .then((result) => callback(null, result))
-        .catch((err) => callback(err, null))
+        .then((result) => {
+            for (let callback of callbacks) {
+                result = callback(null, result)
+                if(!result) {
+                    //console.log("Não foi possivel capturar tudo da " + url);
+                    break;
+                }
+            }
+        })
+        .catch((err) => callbacks[0](err, null))
         ;
 
 };
