@@ -16,9 +16,11 @@ function main() {
 
     //shiftUnshift(nomes, 'Terezinha');
 
-    //bastanteUsado(nomes, 'Jose', animals);
+    bastanteUsado(nomes, 'Jose', animals);
 
-    bastanteUsado(emojis, animals[3], hands);
+    //bastanteUsado(emojis, animals[3], hands);
+
+    outrasFuncoes(emojis, hands[0]);
 
 }
 
@@ -65,11 +67,30 @@ const bastanteUsado = (arr, item, arr2) => {
 
     console.log(`Concatena dois vetores`);
     console.log(arr.concat(arr2));
-
     
     console.log(`Corta uma fatia do array`);
     console.log(arr.slice(3, 9));
-    // var out = arr.shift();
+    
+    console.log(arr);
+    console.log(`Altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos`);
+    console.log(`Retorna Uma lista contendo os elementos removidos`);
+    //array.splice(indice[, deleteCount[, elemento1[, ...[, elementoN]]])
+    console.log(arr.splice(2, 3, arr2[2]));
+    console.log(arr);
+
+};
+
+const outrasFuncoes = (arr, item) => {
+
+    console.log(arr.keys());
+
+    console.log(arr.reverse());
+
+    console.log(arr.values());
+
+    console.log(arr.keys());
+
+    console.log(arr.fill(item, 2, 9));
 
 };
 
