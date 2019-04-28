@@ -38,6 +38,10 @@ DESAFIOS COMPLETOS!
 
 -------------------
 
+### MÓDULO 07 - STANDING BY
+
+-------------------
+
 
 ## CODINGGAME
 
