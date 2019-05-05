@@ -6,10 +6,8 @@ const readMetaTag = function($, meta) {
 
 };
 
-const scrapingOG = function (err, page) {
-    if(err || !page) {
-        return false;
-    }
+const scrapingOG = function (page) {
+
     const $ = cheerio.load(page.data);
     const pageOG = Object.create(Page);
     pageOG.title = readMetaTag($, "title");

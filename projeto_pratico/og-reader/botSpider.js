@@ -5,11 +5,7 @@ const readLinks = function($, meta) {
 
 };
 
-const Spider = function (err, page) {
-    if(err) {
-        console.error(err);
-    }
-
+const Spider = function (page) {
     const $ = cheerio.load(page.data);
 
     return readLinks($);

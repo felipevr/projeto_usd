@@ -19,6 +19,7 @@ A cada iteração do loop da aplicação o usuário poderá solicitar:
 
 */
 
+//estrutura básica de um contato (objeto)
 const Contatos = {
     nome: "",
     telefone: "",
@@ -29,6 +30,13 @@ const Contatos = {
 function main() {
     let sair = false;
 
+    //array que armazenará os contatos
+    const listaDeContatos = [];
+
+    //quantidade de contatos na lista
+    let quantidade = 0;
+
+    //loop principal do programa
     while (!sair) {
         console.log('O que deseja fazer?');
         console.log('1. Incluir um novo contato');
@@ -39,22 +47,24 @@ function main() {
 
         switch (opcao) {
             case 1:
-                incluirNovoContato();
+                listaDeContatos[quantidade++] = incluirNovoContato();
                 break;
             case 2:
-                buscarContato();
+                buscarContato(listaDeContatos);
                 break;
             case 9:
-                console.log('Tchauzinho!');
                 sair = true;
                 break;
         }
+
+        console.log(listaDeContatos);
     }
 
+    console.log('Tchauzinho!');
   
 }
 
-function buscarContato() {
+function buscarContato(listaDeContatos) {
     let voltar = false;
 
     while (!voltar) {
@@ -83,14 +93,27 @@ function buscarContato() {
 
 function incluirNovoContato() {
     
+    console.log('CADASTRO DE NOVO CONTATO');
+
+    let novoContato = Object.create(Contato);
+
+    novoContato.nome = (readline.question("Digite o nome do contato: "));
+    novoContato.telefone = (readline.question("Telefone: "));
+    novoContato.endereco = (readline.question("Endereco: "));
+    novoContato.email = (readline.question("Digite o e-mail do contato: "));
+
+    return novoContato;
 }
 
 function editarContato() {
 
+
+    console.log('EDITAR CONTATO');
+
 }
 
 function excluirContato() {
-
+    console.log('EXCLUIR CONTATO');
 }
 
 

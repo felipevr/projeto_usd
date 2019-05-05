@@ -1,15 +1,12 @@
 
+const ogReader = require('./og-reader/index');
 
-const getUrl = require('./bots/botURLReader');
-const downloadPage = require('./bots/botDownPage');
-const scrapingOG = require('./bots/botScrapingOG');
-const Spider = require('./bots/botSpider');
 const PageRepository = require('./model/pageRepository');
 
 
 const main = function () {
 
-    const url = getUrl();
+    const url = ogReader.getUrl();
 
     if (!url) {
         console.log('A URL informada não é válida');
@@ -18,12 +15,22 @@ const main = function () {
 
     console.log("Estamos processando...");
 
-    downloadPage(url, Spider, (err, urls) => {
-        urls.forEach(url => {
-            downloadPage(url, scrapingOG, (err, page) => PageRepository.save(page));
+    ogReader.downloadPage(url).then(result => {
+        let spiderResult = ogReader.spider(result);
+
+        spiderResult.forEach(url => {
+            ogReader.downloadPage(url).then(result => {
+                const page = ogReader.scrap(result);
+                if(page) {
+                    PageRepository.save(page);
+                }
+            })
+            .catch((err) => err)
+            ;
         });
-        return true;
-    });
+    })
+    .catch((err) => err)
+    ;
 
     //downloadPage(url, scrapingOG);
 
