@@ -30,11 +30,13 @@ DESAFIOS COMPLETOS!
 
 -------------------
 
-### MÓDULO 05 - EM ANDAMENTO
+### MÓDULO 05 - COMPLETO
+
+DESAFIO PENDENTE!
 
 -------------------
 
-### MÓDULO 06 - STANDING BY
+### MÓDULO 06 - EM ANDAMENTO
 
 -------------------
 

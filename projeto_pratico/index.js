@@ -4,7 +4,7 @@ const ogReader = require('./og-reader/index');
 const PageRepository = require('./model/pageRepository');
 
 
-const main = function () {
+const main = async () => {
 
     const url = ogReader.getUrl();
 
@@ -13,28 +13,16 @@ const main = function () {
         return;
     }
 
-    console.log("Estamos processando...");
+    console.log("Estamos processando a extração dos dados da página...");
 
-    ogReader.downloadPage(url).then(result => {
-        let spiderResult = ogReader.spider(result);
+    try {
+        const pages = await ogReader.run(url);
+        PageRepository.saveAll(pages);
+        console.log(PageRepository.pageList);
+    } catch(err) {
 
-        spiderResult.forEach(url => {
-            ogReader.downloadPage(url).then(result => {
-                const page = ogReader.scrap(result);
-                if(page) {
-                    PageRepository.save(page);
-                }
-            })
-            .catch((err) => err)
-            ;
-        });
-    })
-    .catch((err) => err)
-    ;
-
-    //downloadPage(url, scrapingOG);
-
-
+    }
+    
 };
 
 

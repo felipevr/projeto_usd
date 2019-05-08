@@ -9,16 +9,19 @@ const readMetaTag = function($, meta) {
 const scrapingOG = function (page) {
 
     const $ = cheerio.load(page.data);
-    const pageOG = Object.create(Page);
-    pageOG.title = readMetaTag($, "title");
-    pageOG.type = readMetaTag($, "type");
-    pageOG.image = readMetaTag($, "image");
-    pageOG.url = readMetaTag($, "url");
-    if (!pageOG.title && !pageOG.type && !pageOG.image && !pageOG.url) {
+
+    let title = readMetaTag($, "title");
+    let type = readMetaTag($, "type");
+    let image = readMetaTag($, "image");
+    let url = readMetaTag($, "url");
+
+    let pageOg = new Page(url, title, image, type);
+
+    if (!pageOg.isValid()) {
         return false;
     }
-    //console.log(pageOG);
-    return pageOG;
+
+    return pageOg;
 };
 
 
