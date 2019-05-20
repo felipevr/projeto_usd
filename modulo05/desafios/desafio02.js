@@ -5,6 +5,7 @@ modulo 05 - DESAFIO 02
 */
 
 const readline = require('readline-sync');
+const fs = require('fs');
 
 /*
 Crie uma agenda de contatos que armazene cada contato num array. A agenda
@@ -20,7 +21,7 @@ A cada iteração do loop da aplicação o usuário poderá solicitar:
 */
 
 //estrutura básica de um contato (objeto)
-const Contatos = {
+const Contato = {
     nome: "",
     telefone: "",
     endereco: "",
@@ -41,6 +42,9 @@ function main() {
         console.log('O que deseja fazer?');
         console.log('1. Incluir um novo contato');
         console.log('2. Buscar um contato pelo nome');
+        console.log('5. Listar contatos');
+        console.log('6. Carregar agenda');
+        console.log('7. Salvar agenda');
         console.log('9. Sair da agenda');
 
         let opcao = parseInt(readline.question("Escolha uma opcao : "));
@@ -52,16 +56,79 @@ function main() {
             case 2:
                 buscarContato(listaDeContatos);
                 break;
+            case 5:
+                listarContatos(listaDeContatos);
+                break;
+            case 6:
+                listaDeContatos = carregarAgenda(listaDeContatos);
+                break;
+            case 7:
+                salvarAgenda(listaDeContatos);
+                break;
             case 9:
                 sair = true;
                 break;
         }
 
-        console.log(listaDeContatos);
+        //console.log(listaDeContatos);
     }
 
     console.log('Tchauzinho!');
   
+}
+
+function carregarAgenda() {
+    const file = 'agenda.json';
+    let listaDeContatos = [];
+
+    fs.open(file, 'r', (err, fd) => {
+        if (err) {
+          if (err.code === 'ENOENT') {
+            console.error(file+' does not exist');
+            return;
+          }
+      
+          throw err;
+        }
+      
+        const dados = readMyData(fd);
+        console.log(dados);
+      });
+
+      return listaDeContatos;
+}
+
+function salvarAgenda(listaDeContatos) {
+    const file = 'agenda.json';
+    //fs.createWriteStream(path[, options])
+    fs.open(Buffer.from(file), 'w', (err, fd) => {
+        if (err) throw err;
+
+        var json = JSON.stringify(listaDeContatos); 
+        fs.writeFile(fd, json, (err) => {
+            if (err) { 
+                console.log(json);
+                throw err;
+            }
+            console.log('The file has been saved!');
+        }); 
+        //fs.write(fd, listaDeContatos);
+
+        fs.close(fd, (err) => {
+          if (err) throw err;
+        });
+      });
+
+      console.log('Agenda salva!');
+
+}
+
+function listarContatos(listaDeContatos) {
+    
+    for(let contato of listaDeContatos) {
+        console.log(contato);
+    }
+
 }
 
 function buscarContato(listaDeContatos) {
