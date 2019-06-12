@@ -23,10 +23,13 @@
 </html>
 <body>
     <h1>Batalha Naval</h1>
+
     <div id="batalha">
     </div>
+
     <script>
-        const maxTiros = 17;
+        const maxTiros = 18;
+        let tirosCertos = 0;
         const tabuleiro = [
             [0,0,0,0,1,1,1,1,0,0],
             [0,0,0,0,0,0,0,0,0,0],
@@ -37,7 +40,7 @@
             [1,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0]
+            [0,0,0,0,1,1,1,1,0,0]
         ];
 
         let divBatalha = document.getElementById('batalha');
@@ -46,7 +49,7 @@
             for (let i = 0; i < 10; i++) {
                 for (let j = 0; j < 10; j++) {
                     let posicao = document.createElement('div');
-                    if (tabuleiro[i][j] === 1) {
+                    if (tabuleiro[j][i] === 1) {
                         posicao.setAttribute('data-alvo', 1);
                     } else {
                         posicao.setAttribute('data-alvo', 0);
@@ -57,6 +60,33 @@
                 }
             }
         }
+
+        function lancarTorpedo(event) {
+            div = event.target;
+            if(div === event.currentTarget) {
+                return;
+            }
+
+            let value = div.getAttribute('data-alvo');
+            if (value == 0) {
+                div.style.background = 'darkgrey';
+                div.setAttribute('data-alvo', 3);
+            } else if (value == 1) {
+                div.style.background = 'red';
+                div.setAttribute('data-alvo', 2);
+                tirosCertos++;
+                if (tirosCertos === maxTiros) {
+                    alert('Você afundou todas embarcações. FIM!');
+                    location.reload();
+                }
+            } else {
+                console.log('Voce jah acertou aqui!');
+            }
+
+            //console.log(div);
+        }
+
+        divBatalha.addEventListener('click', lancarTorpedo, false);
 
         preencherTabuleiro();
     </script>

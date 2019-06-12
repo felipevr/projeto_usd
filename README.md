@@ -36,11 +36,25 @@ DESAFIO PENDENTE!
 
 -------------------
 
-### MÓDULO 06 - EM ANDAMENTO
+### MÓDULO 06 - COMPLETO
+
+DESAFIO PENDENTE!
 
 -------------------
 
-### MÓDULO 07 - STANDING BY
+### MÓDULO 07 - EM ANDAMENTO
+
+-------------------
+
+### MÓDULO 08 - STANDING BY
+
+-------------------
+
+### MÓDULO 09 - STANDING BY
+
+-------------------
+
+### MÓDULO 10 - STANDING BY
 
 -------------------
 
