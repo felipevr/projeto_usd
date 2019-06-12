@@ -15,6 +15,7 @@ function generate(size, lowest, highest) {
 		}
 	}
   
+	//sort
 	var highestNumber = 0;
 	for(var m = 0; m < numbers.length; m++) {
 		for(var n = m + 1; n < numbers.length; n++) {

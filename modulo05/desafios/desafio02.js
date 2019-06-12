@@ -74,7 +74,7 @@ function main() {
     }
 
     console.log('Tchauzinho!');
-  
+
 }
 
 function carregarAgenda() {
@@ -83,19 +83,19 @@ function carregarAgenda() {
 
     fs.open(file, 'r', (err, fd) => {
         if (err) {
-          if (err.code === 'ENOENT') {
-            console.error(file+' does not exist');
-            return;
-          }
-      
-          throw err;
+            if (err.code === 'ENOENT') {
+                console.error(file+' does not exist');
+                return;
+            }
+            
+            throw err;
         }
-      
+        
         const dados = readMyData(fd);
         console.log(dados);
-      });
+    });
 
-      return listaDeContatos;
+    return listaDeContatos;
 }
 
 function salvarAgenda(listaDeContatos) {
@@ -104,8 +104,8 @@ function salvarAgenda(listaDeContatos) {
     fs.open(Buffer.from(file), 'w', (err, fd) => {
         if (err) throw err;
 
-        var json = JSON.stringify(listaDeContatos); 
-        fs.writeFile(fd, json, (err) => {
+        var json = JSON.stringify(listaDeContatos, null, 2);
+        fs.writeFileSync(fd, json, (err) => {
             if (err) { 
                 console.log(json);
                 throw err;
@@ -115,11 +115,11 @@ function salvarAgenda(listaDeContatos) {
         //fs.write(fd, listaDeContatos);
 
         fs.close(fd, (err) => {
-          if (err) throw err;
+            if (err) throw err;
         });
-      });
+    });
 
-      console.log('Agenda salva!');
+    console.log('Agenda salva!');
 
 }
 

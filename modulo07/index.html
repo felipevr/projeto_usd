@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batalha Naval</title>
+    <style>
+        #batalha {
+            position: relative;
+            height: 500px;
+            width: 500px;
+            border: 2px solid gray;
+        }
+
+        #batalha div {
+            position: absolute;
+            box-sizing: border-box;
+            height: 50px;
+            width: 50px;
+            border: 1px solid black;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+</html>
+<body>
+    <h1>Batalha Naval</h1>
+    <div id="batalha">
+    </div>
+    <script>
+        const maxTiros = 17;
+        const tabuleiro = [
+            [0,0,0,0,1,1,1,1,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [1,0,0,0,0,0,1,0,0,0],
+            [1,0,0,0,0,0,1,0,0,0],
+            [1,0,0,0,0,0,1,1,1,1],
+            [1,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0]
+        ];
+
+        let divBatalha = document.getElementById('batalha');
+
+        function preencherTabuleiro() {
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    let posicao = document.createElement('div');
+                    if (tabuleiro[i][j] === 1) {
+                        posicao.setAttribute('data-alvo', 1);
+                    } else {
+                        posicao.setAttribute('data-alvo', 0);
+                    }
+                    posicao.style.top = (j * 50) + 'px';
+                    posicao.style.left = (i * 50) + 'px';
+                    divBatalha.appendChild(posicao);
+                }
+            }
+        }
+
+        preencherTabuleiro();
+    </script>
+</body>
