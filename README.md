@@ -42,11 +42,13 @@ DESAFIO PENDENTE!
 
 -------------------
 
-### MÓDULO 07 - EM ANDAMENTO
+### MÓDULO 07 - COMPLETO
+
+DESAFIO PENDENTE!
 
 -------------------
 
-### MÓDULO 08 - STANDING BY
+### MÓDULO 08 - EM ANDAMENTO
 
 -------------------
 
