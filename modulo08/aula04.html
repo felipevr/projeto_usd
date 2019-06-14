@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Domindando Javascript!</title>
+</head>
+<body>
+    <p>
+        <a href="https://felipevr.eti.br">PAGINA TOP</a>
+    </p>
+
+    
+    <div id='msgs'></div>
+
+    <script>
+        var a = document.querySelector('a');
+        
+        a.addEventListener('mousedown', event => {
+            mensagem('Você vai ficar aqui');
+            event.preventDefault();
+        });
+
+
+        function mensagem(txt) {
+            console.log(txt);
+            document.getElementById('msgs').innerHTML += '<p>'+txt+'</p>';
+            document.getElementsByTagName('body')[0].innerHTML += '<p>'+txt+'</p>';
+        }
+    </script>
+</body>
+</html>
