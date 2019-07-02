@@ -3,17 +3,17 @@
     "name": "Usuários São Demais",
     "icons": [
       {
-        "src": "/images/chip-128.png",
+        "src": "images/chip-128.png",
         "type": "image/png",
         "sizes": "128x128"
       },
       {
-        "src": "/images/chip-256.png",
+        "src": "images/chip-256.png",
         "type": "image/png",
         "sizes": "256x256"
       },
       {
-        "src": "/images/chip-512.png",
+        "src": "images/chip-512.png",
         "type": "image/png",
         "sizes": "512x512"
       }
