@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Domindando Javascript! - Em busca de emprego</title>
+    <style>
+        div {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>CADASTRO EMPREGO</h1>
+    <form action="/salvar" method="post">
+        <div>
+            <label for="inputNome">
+                Nome:
+                <input type="text" name="nome-completo" id="inputNome">
+            </label>
+        </div>
+        <div>
+            <label for="inputSenha">
+                Senha:
+                <input type="password" name="senha" id="inputSenha">
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Gênero:
+            </label>
+        
+            <label>
+                <input type="radio" name="sexo" id="inputSexoM" value="M">
+                Masculino
+            </label>
+            <label>
+                <input type="radio" name="sexo" id="inputSexoF" value="F">
+                Feminino
+            </label>
+        </div>
+        
+        <div>
+            <label>
+                Regime Jurídico:
+            </label>
+        
+            <label>
+                <input type="checkbox" name="sexo" id="inputCLT" value="M">
+                CLT
+            </label>
+            <label>
+                <input type="checkbox" name="sexo" id="inputCNPJ" value="F">
+                CNPJ
+            </label>
+        </div>
+
+        <div>
+            <label for="inputPDF">
+                Curriculo em PDF:
+                <input type="file" name="curriculo" id="inputCurriculo">
+            </label>
+        </div>
+    
+    </form>
+    
+    <script>
+    </script>
+</body>
+</html>
