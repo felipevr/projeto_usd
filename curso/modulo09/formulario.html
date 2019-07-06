@@ -1,103 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Domindando Javascript! - Em busca de emprego</title>
-    <style>
-        form div {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: inline-block;
-            /*width: 25%;*/
-            font-weight: bold;
-        }
-    </style>
+    <title>D.JS! - Em busca de emprego</title>
+    <link rel="stylesheet" href="./style/style.css">
 </head>
+
 <body>
-    
-    <h1>CADASTRO EMPREGO</h1>
-    <form action="/salvar" method="post">
-        <div>
-            <label for="inputNome">
-                Nome:
-                <input type="text" name="nome-completo" id="inputNome">
-            </label>
-        </div>
-        <div>
-            <label for="inputSenha">
-                Senha:
-                <input type="password" name="senha" id="inputSenha">
-            </label>
-        </div>
+    <div class="container">
+        <h1>CADASTRO EMPREGO</h1>
+        <form action="/salvar" method="post" name="cadastro">
+            <div>
+                <label for="inputNome">Nome:</label>
+                <input type="text" name="nomeCompleto" id="inputNome" autocomplete="off" autofocus required minlength="10">
+            </div>
+            <div>
+                <label for="inputSenha">Senha:</label>
+                <input type="password" name="senha" id="inputSenha" required pattern="[A-Za-z0-9]+" minlength="6">
+            </div>
+            <div class="radio">
+                <strong>Gênero:</strong>
+                <div>
+                    <input type="radio" name="sexo" id="inputSexoM" value="M">
+                    <label for="inputSexoM">Masculino</label>
+                    <input type="radio" name="sexo" id="inputSexoF" value="F">
+                    <label for="inputSexoF">Feminino</label>
+                </div>
+            </div>
+            <div class="checkbox">
+                <strong>Regime:</strong>
+                <div>
+                    <input type="checkbox" name="regime" id="inputRegimeCLT" value="CLT">
+                    <label for="inputRegimeCLT">CLT</label>
 
-        <div>
-            <label>
-                Gênero:
-            </label>
-        
-            <label>
-                <input type="radio" name="sexo" id="inputSexoM" value="M">
-                Masculino
-            </label>
-            <label>
-                <input type="radio" name="sexo" id="inputSexoF" value="F">
-                Feminino
-            </label>
-        </div>
-        
-        <div>
-            <label>
-                Regime Jurídico:
-            </label>
-        
-            <label>
-                <input type="checkbox" name="sexo" id="inputCLT" value="M">
-                CLT
-            </label>
-            <label>
-                <input type="checkbox" name="sexo" id="inputCNPJ" value="F">
-                CNPJ
-            </label>
-        </div>
+                    <input type="checkbox" name="regime" id="inputRegimeCNPJ" value="CNPJ">
+                    <label for="inputRegimeCNPJ">CNPJ</label>
 
-        <div>
-            <label for="inputPDF">
-                Curriculo em PDF:
-                <input type="file" name="curriculo" id="inputCurriculo">
-            </label>
-        </div>
-
-        <div>
-            <label for="textObs">
-                Observação:
-                <br>
-                <textarea name="obs" id="textObs" cols="30" rows="10">
-                </textarea>
-            </label>
-        </div>
-
-        <div>
-            <label for="selectCargo">
-                Cargo:
-                <br>
-                <select name="cargo" id="selectCargo">
+                    <input type="checkbox" name="regime" id="inputRegimeFree" value="Free">
+                    <label for="inputRegimeFree">Freelancer</label>
+                </div>
+            </div>
+            <div>
+                <label for="selectCargo">Cargo: </label>
+                <select name="cargo" id="selectCargo" required>
                     <option value="">Selecione...</option>
                     <option value="Programador">Programador</option>
-                    <option value="Analista">Analista</option>
+                    <option value="Analista">Analista de TI</option>
                     <option value="Medico">Medico</option>
                     <option value="Advogado">Advogado</option>
                 </select>
-            </label>
-        </div>
-    
-    </form>
-    
+            </div>
+            <div class="textarea">
+                <label for="textObs">Observação:
+                </label>
+                <span><small id="obsCount">0</small> de 500</span>
+                <textarea name="observacao" id="textObs" cols="30" rows="10" maxlength="500"></textarea>
+            </div>
+            <div class="file">
+                <label for="inputPDF">
+                    Curriculo:
+                    <input type="file" name="curriculo" id="inputPDF">
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="block">
+                    <input type="checkbox" name="confirmacao" id="inputConfirmacao" value="OK">
+                    Confirmo que todas as informações são verdadeiras.
+                </label>
+            </div>
+            <div class="actions">
+                <button type="reset">Limpar</button>
+                <button type="submit" disabled>Salvar</button>
+            </div>
+        </form>
+    </div>
+
     <script>
+        // document.querySelector("input").focus();
+        // console.log(document.activeElement);
+
+        //manipulando textarea
+        var obsText = document.querySelector('#textObs');
+        var obsCount = document.querySelector('#obsCount');
+        obsText.addEventListener('input', (event) => {
+            obsCount.textContent = obsText.value.length;
+        });
+
+        //manipulando checkbox e radio
+        let checks = document.querySelectorAll("input[name='regime'][type='checkbox']");
+        let radios = document.querySelectorAll("input[name='sexo'][type='radio']");
+
+        function selectChecks() {
+            Array.from(checks).forEach(check => {
+                let label = document.querySelector('label[for="'+check.id+'"]');
+                if (check.checked) {
+                    label.classList.add('selected');
+                } else if (label.classList.contains('selected')) {
+                    label.classList.remove('selected');
+                }
+            });
+        }
+        
+        Array.from(checks).forEach(check => {
+                check.addEventListener('change', selectChecks);
+            });
+
+        function selectRadios() {
+            Array.from(radios).forEach(radio => {
+                let label = document.querySelector('label[for="'+radio.id+'"]');
+                if (radio.checked) {
+                    label.classList.add('selected');
+                } else if (label.classList.contains('selected')) {
+                    label.classList.remove('selected');
+                }
+            });
+        }
+
+        Array.from(radios).forEach(radio => {
+            radio.addEventListener('change', selectRadios);
+            });
+
+
+        //manipulando o select
+        let select = document.querySelector("#selectCargo");
+        let textA = document.querySelector('.textarea');
+        select.addEventListener('change', event => {
+            if (event.target.value === 'Programador') {
+                textA.style.display = 'none';
+            } else {
+                textA.style.display = 'block';
+            }
+        });
+
+        //manipulando o input file
+        let inputFile = document.querySelector("#inputPDF");
+        inputFile.addEventListener("change", () => {
+            if(inputFile.files.length > 0) {
+                let file = inputFile.files[0];
+                console.log("Nome do arquivo selecionado: ", file.name);
+
+                if (file.type) {
+                    console.log("Tipo do arquivo selecionado: ", file.type);
+                }
+
+                let reader = new FileReader();
+
+                reader.addEventListener('load', () => {
+                    console.log(reader.result);
+                });
+
+                reader.readAsText(file);
+            }
+        });
+
+        //liberando botão salvar
+        let confirmar = document.querySelector("#inputConfirmacao");
+        let btnSalvar = document.querySelector("button[type=submit]");
+
+        confirmar.addEventListener('change', () => {
+            btnSalvar.disabled = !confirmar.checked;
+            // if (confirmar.checked) {
+            //     btnSalvar.disabled = false;
+            // } else {
+            //     btnSalvar.disabled = true;
+            // }
+        });
+
     </script>
 </body>
+
 </html>
