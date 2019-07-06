@@ -6,9 +6,15 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Domindando Javascript! - Em busca de emprego</title>
     <style>
-        div {
+        form div {
             display: block;
             margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            /*width: 25%;*/
+            font-weight: bold;
         }
     </style>
 </head>
@@ -63,6 +69,29 @@
             <label for="inputPDF">
                 Curriculo em PDF:
                 <input type="file" name="curriculo" id="inputCurriculo">
+            </label>
+        </div>
+
+        <div>
+            <label for="textObs">
+                Observação:
+                <br>
+                <textarea name="obs" id="textObs" cols="30" rows="10">
+                </textarea>
+            </label>
+        </div>
+
+        <div>
+            <label for="selectCargo">
+                Cargo:
+                <br>
+                <select name="cargo" id="selectCargo">
+                    <option value="">Selecione...</option>
+                    <option value="Programador">Programador</option>
+                    <option value="Analista">Analista</option>
+                    <option value="Medico">Medico</option>
+                    <option value="Advogado">Advogado</option>
+                </select>
             </label>
         </div>
     
