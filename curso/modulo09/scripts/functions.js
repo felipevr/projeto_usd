@@ -111,6 +111,11 @@ cadastro.addEventListener("submit", event => {
 //pegando dados do localStorage
 window.addEventListener('load', () => {
     let candidato = JSON.parse(localStorage.getItem("candidato"));
+
+    if(!candidato) {
+        return;
+    }
+
     let elements =  document.forms['cadastro'].elements;
 
     elements['nomeCompleto'].value = candidato.nome;
@@ -129,4 +134,17 @@ window.addEventListener('load', () => {
 
     selectChecks();
     selectRadios();
+});
+
+//apagando dados do storage
+//let cadastroForm = document.forms['cadastro'];
+cadastro.addEventListener("reset", event => {
+    localStorage.removeItem('candidato');
+
+    setTimeout(function() {
+        // executes after the form has been reset
+        console.log('after reset: ');
+        selectChecks();
+        selectRadios();
+    }, 1);
 });
