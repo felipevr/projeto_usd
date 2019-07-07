@@ -107,3 +107,26 @@ cadastro.addEventListener("submit", event => {
     localStorage.setItem("candidato", JSON.stringify(candidato));
     alert('Cadastro salvo!');
 });
+
+//pegando dados do localStorage
+window.addEventListener('load', () => {
+    let candidato = JSON.parse(localStorage.getItem("candidato"));
+    let elements =  document.forms['cadastro'].elements;
+
+    elements['nomeCompleto'].value = candidato.nome;
+    elements['senha'].value = candidato.senha;
+    elements['cargo'].value = candidato.cargo;
+    elements['observacao'].value = candidato.observacao;
+    //elements['sexo'].value = candidato.sexo;
+
+    Array.from(elements['sexo'])
+        .find(input => input.value = candidato.sexo).checked = true;
+
+    candidato.regime.forEach(regime => {
+        Array.from(elements['regime'])
+            .find(input => input.value == regime).checked = true;
+    });
+
+    selectChecks();
+    selectRadios();
+});
