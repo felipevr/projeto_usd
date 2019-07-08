@@ -5,6 +5,8 @@
 Acesse:
 https://coddev-cursos.coursify.me/student/courses/dominando-o-javascript/
 
+Repositório do Curso
+https://github.com/CodDev2018/DominandoOJavaScript
 
 -------------------
 
@@ -50,13 +52,23 @@ DESAFIO PENDENTE!
 
 ### MÓDULO 08 - EM ANDAMENTO
 
+DESAFIO PENDENTE!
+
 -------------------
 
-### MÓDULO 09 - STANDING BY
+### MÓDULO 09 - EM ANDAMENTO
 
 -------------------
 
 ### MÓDULO 10 - STANDING BY
+
+-------------------
+
+### MÓDULO 11 - STANDING BY
+
+-------------------
+
+### MÓDULO 12 - STANDING BY
 
 -------------------
 

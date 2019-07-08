@@ -90,6 +90,10 @@ let cadastroForm = document.forms['cadastro'];
 cadastro.addEventListener("submit", event => {
     event.preventDefault();
 
+    if(!validarSexo() || !validarRegime()) {
+        return;
+    }
+
     console.log('salvando...');
 
     let elements = event.target.elements;
@@ -103,6 +107,8 @@ cadastro.addEventListener("submit", event => {
         cargo: elements['cargo'].value,
         observacao: elements['observacao'].value
     };
+
+    console.log(elements);
 
     localStorage.setItem("candidato", JSON.stringify(candidato));
     alert('Cadastro salvo!');
