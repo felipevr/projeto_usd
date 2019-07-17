@@ -21,7 +21,8 @@ const validarSexo = () => {
 const validarRegime = () => {
     const count = Array.from(elements['regime'])
         .filter(input => input.checked)
-        .reduce((count) => count + 1, 0);
+        .length;
+        //.reduce((count) => count + 1, 0);
 
     invalid = count === 0;
 
@@ -34,6 +35,7 @@ const validarRegime = () => {
 
 const nomeCompleto = elements['nomeCompleto'];
 const senha = elements['senha'];
+const cargo = elements['cargo'];
 
 nomeCompleto.addEventListener('input', ValidityOnInputEvent);
 senha.addEventListener('input', ValidityOnInputEvent);
@@ -53,5 +55,11 @@ senha.addEventListener('invalid', event => {
         event.target.setCustomValidity('Este campo deve ter pelo menos 6 digitos.');
     } else {
         event.target.setCustomValidity('A senha deve conter apenas letras e números.');
+    }
+});
+
+cargo.addEventListener('invalid', event => {
+    if (event.target.value === '') {
+        event.target.setCustomValidity('O cargo deve ser informado.');
     }
 });
