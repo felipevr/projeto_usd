@@ -1,6 +1,6 @@
 # PROJETO DOMINANDO JAVASCRIPT
 
-[![N|Solid](https://codinomedeveloper.files.wordpress.com/2018/12/logo-2-e1548064763870.png)](https://coddev.com.br/)
+[![CodDev](https://codinomedeveloper.files.wordpress.com/2018/12/logo-2-e1548064763870.png)](https://coddev.com.br/)
 
 Acesse:
 https://coddev-cursos.coursify.me/student/courses/dominando-o-javascript/
@@ -58,6 +58,8 @@ DESAFIO PENDENTE!
 
 ### MÓDULO 09 - EM ANDAMENTO
 
+DESAFIO PENDENTE!
+
 -------------------
 
 ### MÓDULO 10 - STANDING BY
@@ -69,6 +71,20 @@ DESAFIO PENDENTE!
 -------------------
 
 ### MÓDULO 12 - STANDING BY
+
+-------------------
+
+
+## PROJETO USD
+
+1. Backend - PENDENTE
+2. Tarefas Agendadas - PENDENTE
+3. Layout OK
+4. Manifest e ServiceWorker OK
+5. LocalStorage e Navigo (vanilla router) - EM ANDAMENTO
+
+Playlist: 
+https://www.youtube.com/watch?v=TpjzhMk_M-Q&list=PLhW5jRUibMHW8mgNXJ_saJXAwFXTnQq-3
 
 -------------------
 

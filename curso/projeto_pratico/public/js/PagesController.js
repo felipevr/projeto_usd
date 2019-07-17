@@ -3,4 +3,10 @@ class PagesController {
         this.model = model;
         this.view = view;
     }
+
+    init(selector) {
+        this.model.getPages(pages => {
+            this.view.printAllPages(selector, pages);
+        });
+    }
 }
