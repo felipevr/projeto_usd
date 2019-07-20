@@ -77,7 +77,7 @@ DESAFIO PENDENTE!
 
 ## PROJETO USD
 
-1. Backend - PENDENTE
+1. Backend - OK
 2. Tarefas Agendadas - PENDENTE
 3. Layout OK
 4. Manifest e ServiceWorker OK

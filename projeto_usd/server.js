@@ -18,10 +18,19 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-    Cotacao.findOne().sort('-data').exec((err, res) => {
-        console.log(err, res);
+    Cotacao.findOne().sort('-data').exec((err, cotacao) => {
+        if (err) {
+            return res.status(500).json({
+                msg: "Não foi possível recuperar a cotação"
+            });
+        }
+        return res.status(200).json({
+            valor: cotacao.valor,
+            data: cotacao.data
+        })
+        //console.log(err, res);
     });
-    return res.status(200).json('Olá mundo!');
+    //return res.status(200).json('Olá mundo!');
 });
 
 app.listen(3030);

@@ -5,4 +5,4 @@ const cotacaoSchema = new mongoose.Schema({
     data: {type: Date, required: true}
 });
 
-exports = module.exports = mongoose.model('Cotacao', cotacaoSchema, 'cotacao');
+exports = module.exports = mongoose.model('Cotacao', cotacaoSchema); //, 'cotacaos'
