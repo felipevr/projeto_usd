@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const cotacaoSchema = new mongoose.Schema({
-    valor: {type: Number, required: true},
+    compra: {type: Number, required: true},
+    venda: {type: Number, required: true},
     data: {type: Date, required: true}
 });
 
