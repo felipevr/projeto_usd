@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const scheduler = require('node-schedule');
 const mongoose = require('mongoose');
+
+const botBancoCentral = require('./botBancoCentral');
 
 //contem apenas a string de conexão com o https://cloud.mongodb.com
 const connectionString = require('./connectionString');
@@ -32,6 +34,8 @@ app.get('/', (req, res) => {
     });
     //return res.status(200).json('Olá mundo!');
 });
+
+scheduler.scheduleJob('0 1 * * *', botBancoCentral);
 
 app.listen(3030);
 

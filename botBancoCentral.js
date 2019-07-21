@@ -2,23 +2,18 @@ const axios = require('axios');
 const moment = require('moment');
 
 const Cotacao = require('./CotacaoSchema');
-const dbURL = require('./connectionString');
 
-
-const mongoose = require('mongoose');
-mongoose.connect(dbURL, {
-    useNewUrlParser: true
-});
-
-const consultar = async () => {
+const ConsultarCotacao = async () => {
         
-    let data = moment().format('MM-DD-YYYY'); //'05-08-2019';
+    let data = '07-16-2019';//moment().format('MM-DD-YYYY');
     const endpoint = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='${data}'&$top=100&$format=json`;
+
+    console.log(`'Consultando banco central ${data}'`);
 
     try {
         const response = await axios.get(endpoint);
-        //console.log(response.data);
         const cotacaoBC = response.data.value[0];
+        console.log(`'Consultando banco central resultado ${cotacaoBC}'`);
         if(!cotacaoBC) {
             return null;
         }
@@ -36,4 +31,5 @@ const consultar = async () => {
     
 }
 
-consultar()
+//consultar()
+module.exports = ConsultarCotacao;
