@@ -11,7 +11,8 @@ router.get('/cotacao/hoje', (req, res) => {
             });
         }
         return res.status(200).json({
-            valor: cotacao.valor,
+            compra: cotacao.compra,
+            venda: cotacao.venda,
             data: cotacao.data
         })
         //console.log(err, res);
