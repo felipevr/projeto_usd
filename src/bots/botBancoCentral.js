@@ -1,11 +1,11 @@
 const axios = require('axios');
 const moment = require('moment');
 
-const Cotacao = require('./CotacaoSchema');
+const Cotacao = require('../models/CotacaoSchema');
 
 const ConsultarCotacao = async () => {
         
-    let data = '07-16-2019';//moment().format('MM-DD-YYYY');
+    let data = moment().format('MM-DD-YYYY'); //'07-16-2019';
     const endpoint = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='${data}'&$top=100&$format=json`;
 
     console.log(`'Consultando banco central ${data}'`);

@@ -8,11 +8,11 @@ https://www.youtube.com/watch?v=TpjzhMk_M-Q&list=PLhW5jRUibMHW8mgNXJ_saJXAwFXTnQ
 ## CONTEÚDO
 
 1. Backend - OK
-2. Tarefas Agendadas - EM ANDAMENTO
+2. Tarefas Agendadas - OK
 3. Layout - OK
 4. Manifest e ServiceWorker - OK
 5. LocalStorage e Navigo (vanilla router) - EM ANDAMENTO
-
+6. Finalização - PENDENTE
 
 
 

@@ -2,41 +2,30 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const scheduler = require('node-schedule');
 const mongoose = require('mongoose');
+const app = express();
 
-const botBancoCentral = require('./botBancoCentral');
+//PUBLIC 
+app.use(express.static('./public'))
 
+//BODY PARSER
+app.use(bodyParser.json());
+
+//DB CONNECTION
 //contem apenas a string de conexão com o https://cloud.mongodb.com
-const connectionString = require('./connectionString');
-
+const connectionString = require('./src/connectionString');
 mongoose.connect(connectionString, {
     useNewUrlParser: true
 });
 
-const app = express();
+//ROUTERS
+const apiRouter = require('./src/routers/ApiRouter');
+app.use('/api', apiRouter);
 
-const Cotacao = require('./CotacaoSchema');
-
-app.use(bodyParser.json());
-
-
-app.get('/', (req, res) => {
-    Cotacao.findOne().sort('-data').exec((err, cotacao) => {
-        if (err) {
-            return res.status(500).json({
-                msg: "Não foi possível recuperar a cotação"
-            });
-        }
-        return res.status(200).json({
-            valor: cotacao.valor,
-            data: cotacao.data
-        })
-        //console.log(err, res);
-    });
-    //return res.status(200).json('Olá mundo!');
-});
-
+//BOTS
+const botBancoCentral = require('./src/bots/botBancoCentral');
 scheduler.scheduleJob('0 1 * * *', botBancoCentral);
 
+//LISTENER
 app.listen(3030);
 
-exports = module.exports = app
+//exports = module.exports = app
