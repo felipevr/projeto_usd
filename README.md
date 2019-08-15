@@ -10,7 +10,7 @@ https://www.youtube.com/watch?v=TpjzhMk_M-Q&list=PLhW5jRUibMHW8mgNXJ_saJXAwFXTnQ
 1. Backend - OK
 2. Tarefas Agendadas - OK
 3. Layout - OK
-4. Programando o Front-end do PWA - EM ANDAMENTO
+4. Programando o Front-end do PWA - OK
 5. Manifest e ServiceWorker - OK
 6. LocalStorage e Navigo (vanilla router) - EM ANDAMENTO
 7. Finalização - OK
