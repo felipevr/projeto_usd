@@ -26,6 +26,7 @@ router.on({
     },
     'configuracoes': async() => {
         await setContent('configuracoes');
+        config();
     },
     '*': async() => {
         await setContent('conversor');
