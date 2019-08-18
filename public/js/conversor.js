@@ -2,22 +2,51 @@ async function conversor() {
 
     $('#inputEntrada').mask('#.##0,00', {reverse: true}).change();
 
-    let cotacao = {};
+    let cotacao = await resolveCotacao();
 
     let invertido = false;
 
-    window.addEventListener('load', event => {
-        fetch('/api/cotacao/hoje')
-            .then(res => res.json())
-            .then(dados => {
-                cotacao = dados;
-                atualizarTela(cotacao);
-            })
-        ;
-    });
+    atualizarTela(cotacao);
+
+    // window.addEventListener('load', event => {
+    //     fetch('/api/cotacao/hoje')
+    //         .then(res => res.json())
+    //         .then(dados => {
+    //             cotacao = dados;
+    //             atualizarTela(cotacao);
+    //         })
+    //     ;
+    // });
 
     document.getElementById('btnInverter').addEventListener('click', inverter);
     document.forms['conversor'].addEventListener('submit', converter);
+
+    async function resolveCotacao() {
+        let cotacaoOnline = null;
+        let cotacaoOffline = null;
+
+        if(localStorage.cotacao) {
+            cotacaoOffline = JSON.parse(localStorage.cotacao);
+        }
+
+        if(navigator.onLine) {
+            const response = await fetch('/api/cotacao/hoje');
+            cotacaoOnline = await response.json();
+        }
+
+        if(!cotacaoOffline && !cotacaoOnline) {
+            alert('Não foi possível recuperar a cotação. Você pode informar manualmente nas configurações.');
+            window.location.locate = '#/configuracoes';
+        }
+
+        if(cotacaoOnline && (!cotacaoOffline || !cotacaoOffline.offline)) {
+            localStorage.cotacao = JSON.stringify(cotacaoOnline);
+            return cotacaoOnline;
+        }
+    
+        // localStorage.cotacao = 
+        return cotacaoOffline;
+    }
 
     function atualizarTela(cotacao) {
         document.getElementById('cotacao-data').innerText = moment(cotacao.data).format('DD/MM/YYYY');

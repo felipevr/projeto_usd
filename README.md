@@ -12,8 +12,5 @@ https://www.youtube.com/watch?v=TpjzhMk_M-Q&list=PLhW5jRUibMHW8mgNXJ_saJXAwFXTnQ
 3. Layout - OK
 4. Programando o Front-end do PWA - OK
 5. Manifest e ServiceWorker - OK
-6. LocalStorage e Navigo (vanilla router) - EM ANDAMENTO
+6. LocalStorage e Navigo (vanilla router) - OK
 7. Finalização - OK
-
-
-
